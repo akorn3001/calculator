@@ -2,57 +2,52 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .btn {
   text-align: center;
-  font-size: 35px;
+  font-size: 28px;
   color: darkgray;
   width: 50px;
   height: 50px;
-  border-left: 1px solid darkgray;
-  border-top: 1px solid darkgray;
-  background-color: lightgray;
+  border-left: 1px solid #EDF1F3;
+  border-top: 1px solid #EDF1F3;
+  background-color: #FAFAFA;
   outline: none;
 }
 
 .btn:last-child {
-  border-right: 1px solid darkgray;
+  border-right: 1px solid #EDF1F3;
 }
 
-.fifthRow > .btn {
-  border-bottom: 1px solid darkgray;
+.btn:active {
+  background-color: red;
+  color: white;
+}
+
+.fifthRow {
+  border-bottom: 1px solid #EDF1F3;
 }
 
 .viewScreen {
   height: 80px;
-  color: darkgray;
-  border: 1px solid black;
+  background-color: #F4F6F7;
+  font-size: 40px;
+  text-align: right;
+  padding: 7px;
 }
 
 .calculator {
-  
+  display: inline-block;
+}
+
+.btn-clear {
+  color: #F68466;
+}
+
+.btn-equals {
+  background-color: #44A4E8;
+  color: white;
+}
+
+.btn-parens, .btn-percent, .btn-divide, .btn-multiply, .btn-subtract, .btn-add {
+  color: #44A4E8;
 }
