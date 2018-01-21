@@ -26,3 +26,33 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.btn {
+  text-align: center;
+  font-size: 35px;
+  color: darkgray;
+  width: 50px;
+  height: 50px;
+  border-left: 1px solid darkgray;
+  border-top: 1px solid darkgray;
+  background-color: lightgray;
+  outline: none;
+}
+
+.btn:last-child {
+  border-right: 1px solid darkgray;
+}
+
+.fifthRow > .btn {
+  border-bottom: 1px solid darkgray;
+}
+
+.viewScreen {
+  height: 80px;
+  color: darkgray;
+  border: 1px solid black;
+}
+
+.calculator {
+  
+}

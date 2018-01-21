@@ -7,39 +7,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
         <div className="calculator">
           <div className="viewScreen"></div>
-          <button>⌫</button>
-          <div className="1stRow">
-            <button>C</button>
-            <button>( )</button>
-            <button>%</button>
-            <button>÷</button>
+          <button className="btn">⌫</button>
+          <div className="firstRow">
+            <button className="btn">C</button>
+            <button className="btn">( )</button>
+            <button className="btn">%</button>
+            <button className="btn">÷</button>
           </div>
-          <div className="2ndRow">
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>×</button>
+          <div className="secondRow">
+            <button className="btn">7</button>
+            <button className="btn">8</button>
+            <button className="btn">9</button>
+            <button className="btn">×</button>
           </div>
-          <div className="3rdRow">
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
+          <div className="thirdRow">
+            <button className="btn">4</button>
+            <button className="btn">5</button>
+            <button className="btn">6</button>
+            <button className="btn">-</button>
           </div>
-          <div className="4thRow">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>+</button>
+          <div className="fourthRow">
+            <button className="btn">1</button>
+            <button className="btn">2</button>
+            <button className="btn">3</button>
+            <button className="btn">+</button>
           </div>
-          <div className="5thRow">
-            <button>±</button>
-            <button>0</button>
-            <button>.</button>
-            <button>=</button>
+          <div className="fifthRow">
+            <button className="btn">±</button>
+            <button className="btn">0</button>
+            <button className="btn">.</button>
+            <button className="btn">=</button>
           </div>
         </div>
       </div>
