@@ -21,12 +21,52 @@ class App extends Component {
     })
   }
   
-  inputDecimal() {
+  inputDecimalPoint() {
     const { displayValue } = this.state;
     
     this.setState({
       displayValue: displayValue.indexOf('.') === -1 ? displayValue + '.' : displayValue
     })
+  }
+  
+  inputPercent() {
+    const { displayValue } = this.state;
+    
+    this.setState({
+      displayValue: String(Number(displayValue) / 100)
+    })
+  }
+  
+  negateNumber() {
+    const { displayValue } = this.state;
+    
+    this.setState({
+      displayValue: String(Number(displayValue) * -1)
+    })
+  }
+  
+  parentheses() {
+    
+  }
+  
+  multiply() {
+    
+  }
+  
+  divide () {
+    
+  }
+  
+  add() {
+    
+  }
+  
+  subtract() {
+    
+  }
+  
+  equals() {
+    
   }
   
   render() {
@@ -39,7 +79,7 @@ class App extends Component {
             <div className="firstRow">
               <button className="btn btn-clear" onClick={() => this.clearDisplay()}>C</button>
               <button className="btn btn-parens">( )</button>
-              <button className="btn btn-percent">%</button>
+              <button className="btn btn-percent" onClick={() => this.inputPercent()}>%</button>
               <button className="btn btn-divide">÷</button>
             </div>
             <div className="secondRow">
@@ -61,9 +101,9 @@ class App extends Component {
               <button className="btn btn-add">+</button>
             </div>
             <div className="fifthRow">
-              <button className="btn btn-negate">±</button>
+              <button className="btn btn-negate" onClick={() => this.negateNumber()}>±</button>
               <button className="btn btn-0" onClick={() => this.inputNum(0)}>0</button>
-              <button className="btn btn-decimal" onClick={() => this.inputDecimal()}>.</button>
+              <button className="btn btn-decimal" onClick={() => this.inputDecimalPoint()}>.</button>
               <button className="btn btn-equals">=</button>
             </div>
           </div>
