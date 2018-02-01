@@ -4,30 +4,50 @@ import './App.css';
 
 class App extends Component {
   state = {
-    displayValue: '0'
+    firstValue: null,
+    displayValue: '0',
+    pressedOperator: false,
+    operator: null
   }
 
   clearDisplay() {
     this.setState({
+      firstValue: null,
       displayValue: '0',
-      pressedOperator: false
+      pressedOperator: false,
+      operator: null
     })
   }
 
   inputNumber(number) {
-    const { displayValue } = this.state;
+    const { displayValue, pressedOperator } = this.state;
 
-    this.setState({
-      displayValue: displayValue === '0' ? String(number) : displayValue + number
-    })
+    if (pressedOperator) {
+      this.setState({
+        displayValue: String(number),
+        pressedOperator: false
+      })
+    } else if (displayValue.length < 10) {
+      this.setState({
+        displayValue: displayValue === '0' ? String(number) : displayValue + number
+      })
+    }
   }
 
   inputDecimalPoint() {
-    const { displayValue } = this.state;
+    const { displayValue, pressedOperator } = this.state;
 
-    this.setState({
-      displayValue: displayValue.indexOf('.') === -1 ? displayValue + '.' : displayValue
-    })
+    if (pressedOperator) {
+      this.setState({
+        displayValue: '.',
+        pressedOperator: false
+      })
+    } else {
+      this.setState({
+        displayValue: displayValue.indexOf('.') === -1 ? displayValue + '.' : displayValue,
+        pressedOperator: false
+      })
+    }
   }
 
   inputPercent() {
@@ -50,16 +70,42 @@ class App extends Component {
 
   }
 
-  inputOperation(operator) {
+  inputOperation(nextOperator) {
+    const { displayValue, operator, firstValue } = this.state;
+
+    const nextValue = parseFloat(displayValue);
+
+    const operations = {
+      '/': (first, second) => first / second,
+      '*': (first, second) => first * second,
+      '-': (first, second) => first - second,
+      '+': (first, second) => first + second,
+      '=': (first, second) => second
+    }
+
+    if (firstValue == null) {
+      this.setState({
+        firstValue: nextValue
+      })
+    } else if (operator) {
+      const currentValue = firstValue || 0;
+      const computedValue = operations[operator](currentValue, nextValue)
+
+      this.setState({
+        firstValue: computedValue,
+        displayValue: String(computedValue)
+      })
+    }
+
     this.setState({
-      pressedOperator: true
+      pressedOperator: true,
+      operator: nextOperator
     })
-
-
   }
 
   render() {
     const { displayValue } = this.state;
+
     return (
       <div className="App">
         <div className="calculator">
